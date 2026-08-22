@@ -1,0 +1,21 @@
+import ProductCard from '../components/ProductCard';
+
+const PRODUCTS = [
+  { id: '1', name: 'Camiseta Minimalista', price: 89.90 },
+  { id: '2', name: 'Boné Streetwear', price: 59.90 },
+  { id: '3', name: 'Moletom Oversized', price: 199.90 },
+  { id: '4', name: 'Tênis Casual', price: 299.90 },
+];
+
+export default function HomePage() {
+  return (
+    <div>
+      <h1 className="text-3xl font-bold mb-6">Destaques</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        {PRODUCTS.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
+}
