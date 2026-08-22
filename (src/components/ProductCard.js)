@@ -1,0 +1,24 @@
+'use client';
+import { useCart } from '../context/CartContext';
+
+export default function ProductCard({ product }) {
+  const { addToCart } = useCart();
+
+  return (
+    <div className="border rounded-xl p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+      <div className="bg-gray-100 rounded-lg h-48 mb-4 flex items-center justify-center text-gray-400">
+        [ Imagem ]
+      </div>
+      <div>
+        <h3 className="font-semibold text-lg text-gray-800">{product.name}</h3>
+        <p className="text-gray-500 text-sm mt-1">R$ {product.price.toFixed(2)}</p>
+      </div>
+      <button
+        onClick={() => addToCart(product)}
+        className="mt-4 w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800 transition"
+      >
+        Adicionar ao Carrinho
+      </button>
+    </div>
+  );
+}
